@@ -1,0 +1,15 @@
+<h1>Learn How To Do Anything:</h1>
+
+<ul>
+  <% @sections.each do |section| %>
+    <h4><li><%= section.name %> </li></h4>
+      <% section.lessons.each do |lesson| %>
+      <ul>
+        <h5><li><%= link_to lesson.name, section_lesson_path(section, lesson) %> </li></h5>
+      </ul>
+      <% end %>
+    <%= link_to 'Add A Lesson', new_section_lesson_path(section), class: "btn btn-sm btn-info" %>
+  <% end %>
+</ul>
+
+<%= link_to 'Add A Section', new_section_path, class: "btn btn-sm btn-primary" %>
